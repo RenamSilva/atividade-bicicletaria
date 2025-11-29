@@ -13,6 +13,6 @@ function fazerLogin() {
         return;
     }
 
-    // Nesta etapa não há autenticação real, apenas simulação:
+    // Login simulado, sem autenticação real
     window.location.href = "dashboard.html";
 }
