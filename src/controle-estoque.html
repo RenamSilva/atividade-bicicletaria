@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Lista de Produtos - Sistema Bicicletaria</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<title>Controle de Estoque - Bicicletaria</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body onload="carregarProdutosLista()">
+<body onload="carregarEstoque()">
+
 <div class="layout">
     <aside class="sidebar">
         <h2>Bicicletaria</h2>
@@ -21,16 +22,29 @@
 
     <main class="content">
         <header class="page-header">
-            <h1>Produtos Cadastrados</h1>
+            <h1>Controle de Estoque (Itens Vendidos)</h1>
         </header>
 
-        <section>
-            <div id="listaProdutos" class="produtos-grid"></div>
+        <section class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Item</th>
+                        <th>Descrição</th>
+                        <th>Vendedor</th>
+                        <th>Pagamento</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyEstoque"></tbody>
+            </table>
         </section>
+
     </main>
 </div>
 
 <script src="js/common.js"></script>
-script src="js/lista-produtos.js"></script>
+<script src="js/controle-estoque.js"></script>
 </body>
 </html>

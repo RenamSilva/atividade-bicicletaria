@@ -26,3 +26,10 @@ function formatarMoeda(valor) {
 function obterDataAtualISO() {
     return new Date().toISOString();
 }
+
+function carregarLista(k) {
+    return JSON.parse(localStorage.getItem(k) || "[]"); 
+}
+function formatarMoeda(v){
+    return Number(v||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); 
+}
