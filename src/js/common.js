@@ -33,3 +33,11 @@ function carregarLista(k) {
 function formatarMoeda(v){
     return Number(v||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); 
 }
+
+function load(k){
+    return JSON.parse(localStorage.getItem(k)||"[]");
+}
+
+function save(k,v){
+    localStorage.setItem(k,JSON.stringify(v));
+}
