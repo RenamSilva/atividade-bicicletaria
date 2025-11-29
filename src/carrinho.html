@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho de Vendas - Sistema Bicicletaria</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="carregarCarrinho()">
+<div class="layout">
+    <aside class="sidebar">
+        <h2>Bicicletaria</h2>
+        <ul class="menu">
+            <li><a href="dashboard.html">🏠 Dashboard</a></li>
+            <li><a href="cadastro-produto.html">📝 Cadastro de Produtos</a></li>
+            <li><a href="lista-produtos.html">📦 Lista de Produtos</a></li>
+            <li><a href="carrinho.html">🛒 Carrinho de Vendas</a></li>
+            <li><a href="#">📊 Controle de Estoque</a></li>
+            <li><a href="#">🛠️ Ordem de Serviços</a></li>
+        </ul>
+    </aside>
+
+    <main class="content">
+        <header class="page-header">
+            <h1>Carrinho de Vendas</h1>
+        </header>
+
+        <section class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyCarrinho">
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th id="totalCarrinho"></th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section class="form-container" style="margin-top:20px;">
+            <form onsubmit="finalizarCompra(event)">
+                <div class="form-group">
+                    <label for="vendedor">Vendedor(a)</label>
+                    <input type="text" id="vendedor" placeholder="Nome do vendedor (opcional)">
+                </div>
+                <div class="form-group">
+                    <label for="formaPagamento">Forma de Pagamento</label>
+                    <select id="formaPagamento" required>
+                        <option value="Dinheiro">Dinheiro</option>
+                        <option value="Cartão de Crédito">Cartão de Crédito</option>
+                        <option value="Cartão de Débito">Cartão de Débito</option>
+                        <option value="Pix">Pix</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Finalizar Compra</button>
+            </form>
+        </section>
+    </main>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/carrinho.js"></script>
+</body>
+</html>

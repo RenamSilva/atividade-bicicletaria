@@ -16,16 +16,9 @@ function salvarProduto(event) {
         return;
     }
 
-    // Armazena em memória no navegador (futuras etapas usarão isso)
-    let lista = [];
-    try {
-        lista = JSON.parse(localStorage.getItem("produtosBicicletaria") || "[]");
-    } catch (e) {
-        console.error("Erro ao recuperar lista de produtos", e);
-    }
-
+    const lista = carregarLista(STORAGE_KEYS.PRODUTOS);
     lista.push(produto);
-    localStorage.setItem("produtosBicicletaria", JSON.stringify(lista));
+    salvarLista(STORAGE_KEYS.PRODUTOS, lista);
 
     exibirMensagem("mensagemProduto", "Produto salvo com sucesso!", false);
     limparFormularioProduto(false);

@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard - Sistema Bicicletaria</title>
+    <title>Lista de Produtos - Sistema Bicicletaria</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="carregarProdutosLista()">
 <div class="layout">
     <aside class="sidebar">
         <h2>Bicicletaria</h2>
@@ -14,7 +14,6 @@
             <li><a href="cadastro-produto.html">📝 Cadastro de Produtos</a></li>
             <li><a href="lista-produtos.html">📦 Lista de Produtos</a></li>
             <li><a href="carrinho.html">🛒 Carrinho de Vendas</a></li>
-            <!-- Telas futuras: Estoque, Ordem de Serviço -->
             <li><a href="#">📊 Controle de Estoque</a></li>
             <li><a href="#">🛠️ Ordem de Serviços</a></li>
         </ul>
@@ -22,25 +21,16 @@
 
     <main class="content">
         <header class="page-header">
-            <h1>Dashboard</h1>
-            <button class="logout-btn" onclick="window.location.href='login.html'">Sair</button>
+            <h1>Produtos Cadastrados</h1>
         </header>
 
-        <section class="cards">
-            <article class="card">
-                <h3>Produtos</h3>
-                <p>Cadastre novos produtos e consulte os itens cadastrados.</p>
-            </article>
-            <article class="card">
-                <h3>Vendas</h3>
-                <p>Utilize o carrinho de vendas para registrar compras dos clientes.</p>
-            </article>
-            <article class="card">
-                <h3>Serviços</h3>
-                <p>Em entregas futuras, o sistema permitirá gerenciar ordens de serviço.</p>
-            </article>
+        <section>
+            <div id="listaProdutos" class="produtos-grid"></div>
         </section>
     </main>
 </div>
+
+<script src="js/common.js"></script>
+script src="js/lista-produtos.js"></script>
 </body>
 </html>

@@ -4,125 +4,138 @@
 Projeto desenvolvido para a disciplina **Métodos Ágeis, Protótipos de Alta Fidelidade e Telas Funcionais (2024-1)**, 
 sob orientação do professor **Jesus Henrique Segantini**.
 
-Esta primeira etapa (Sprint I) tem como foco a criação dos **protótipos funcionais** das três telas iniciais do 
-sistema de gestão para uma bicicletaria, além da documentação dos principais requisitos do sistema.
+O sistema simula um **Sistema de Gestão para Bicicletaria**, contemplando cadastro de produtos, lista de produtos, 
+carrinho de vendas e, em etapas futuras, controle de estoque e ordens de serviço.
 
 ---
 
-## 🎯 Objetivo da Etapa 1 (Sprint I)
+## 🎯 Etapas do Projeto
 
-Implementar, em **HTML + CSS + JavaScript**, as telas:
+### ✅ Etapa 1 – Sprint 1
+- Tela 1: **Login**
+- Tela 2: **Dashboard (Tela Principal com Menu)**
+- Tela 3: **Cadastro de Produtos**
+- Documento de requisitos da Etapa 1 (RF e RNF).
 
-1. **Tela 1 – Login**
-2. **Tela 2 – Dashboard (Tela Principal com Menu)**
-3. **Tela 3 – Cadastro de Produtos**
-
-Além disso, a etapa contempla:
-
-- Descrição dos principais requisitos funcionais e não funcionais (em PDF);
-- Organização do projeto em estrutura de pastas;
-- Preparação do repositório para versionamento no **GitHub**.
-
----
-
-## 📚 Caso de Uso (Resumo)
-
-O sistema de gestão foi projetado para atender as necessidades de uma **bicicletaria**, apoiando:
-
-- Gerenciamento de produtos (bicicletas, peças, acessórios);
-- Futuro controle de estoque e vendas;
-- Futuro gerenciamento de ordens de serviço (consertos, trocas, manutenções).
-
-Na Etapa 1, o foco está em preparar a base do sistema: acesso (login), visão geral (dashboard) e cadastro de produtos.
+### ✅ Etapa 2 – Sprint 2 (este repositório)
+- Atualização das telas existentes, mantendo padrão visual e navegação.
+- Tela 4: **Lista de Produtos** (exibe produtos cadastrados e permite adicionar ao carrinho).
+- Tela 5: **Carrinho de Vendas** (lista itens selecionados, mostra total, permite remover e finalizar compra).
+- Integração entre cadastro, lista de produtos e carrinho.
+- Documento de requisitos da Etapa 2 (RF e RNF) em PDF.
 
 ---
 
-## ✅ Funcionalidades Implementadas na Etapa 1
+## 🖥️ Telas Implementadas
 
 ### 1. Tela de Login (`login.html`)
-
-- Campo para **usuário/e-mail**;
-- Campo para **senha**;
-- Validação simples dos campos (não permite login com campos vazios);
-- Redirecionamento para o **Dashboard** em caso de preenchimento válido.
-
-> Observação: não há autenticação real com back-end; trata-se de uma simulação, conforme escopo da disciplina.
-
----
+- Campos: usuário/e-mail e senha.
+- Validação de preenchimento.
+- Redireciona para o **Dashboard** em caso de preenchimento válido.
 
 ### 2. Dashboard (`dashboard.html`)
-
-- Tela principal exibida após o login;
-- Possui **menu lateral** com links para:
-  - Dashboard;
-  - Cadastro de Produtos;
-  - (Espaço reservado para futuras telas: Lista de Produtos, Carrinho, Estoque, Ordem de Serviços);
-- Cartões de resumo explicando:
-  - Módulo de Produtos;
-  - Módulo de Vendas;
-  - Módulo de Serviços.
-
----
+- Menu lateral com acesso às telas:
+  - Dashboard
+  - Cadastro de Produtos
+  - Lista de Produtos
+  - Carrinho de Vendas
+  - (Reservas para Estoque e Ordem de Serviço)
+- Cards explicativos sobre módulos de Produtos, Vendas e Serviços.
 
 ### 3. Cadastro de Produtos (`cadastro-produto.html`)
+Campos incluídos, conforme caso de uso:
 
-Tela destinada ao registro dos produtos da bicicletaria, contendo os campos:
+- Descrição
+- Imagem (URL)
+- Preço de Venda
+- Preço de Custo
+- Fabricante
+- Categoria
 
-- **Descrição** (obrigatório);
-- **Imagem (URL)**;
-- **Preço de Venda** (obrigatório);
-- **Preço de Custo** (obrigatório);
-- **Fabricante**;
-- **Categoria** (bicicleta, acessório, peça, etc.).
+Funcionalidades:
 
-Regras básicas:
+- Validação dos campos obrigatórios.
+- Armazenamento dos produtos em `localStorage` na chave `produtosBicicletaria`.
+- Mensagens de sucesso/erro.
+- Botão para limpar o formulário.
 
-- Validação dos campos obrigatórios;
-- Exibição de mensagem de erro em caso de preenchimento incorreto;
-- Exibição de mensagem de sucesso quando o cadastro é concluído;
-- Armazenamento dos produtos no `localStorage` para uso em etapas futuras (lista de produtos, vendas, etc.).
+### 4. Lista de Produtos (`lista-produtos.html`)
+Exibe os produtos cadastrados com:
+
+- **Imagem**
+- **Descrição**
+- **Valor** (preço de venda formatado)
+- **Botão “Adicionar ao Carrinho”**
+
+Funcionalidades:
+
+- Carrega os produtos do `localStorage`.
+- Exibe os cards em um **grid responsivo**.
+- Ao clicar em “Adicionar ao Carrinho”, o item é enviado para o carrinho (chave `carrinhoBicicletaria`).
+
+### 5. Carrinho de Vendas (`carrinho.html`)
+Exibe os itens adicionados ao carrinho em **tabela**, com:
+
+- Item (descrição)
+- Valor individual
+- Botão para remover item
+- Total da compra
+
+Formulário adicional:
+
+- Campo **Vendedor(a)** (opcional)
+- Campo **Forma de pagamento** (Dinheiro, Cartão, Pix etc.)
+- Botão **Finalizar Compra**
+
+Ao finalizar a compra:
+
+- Registra cada item vendido na chave `vendasBicicletaria` do `localStorage`, com:
+  - Data da venda
+  - Tipo de item (Produto)
+  - Descrição
+  - Vendedor(a)
+  - Forma de pagamento
+  - Valor
+- Limpa o carrinho e atualiza a tela.
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
 
-- **HTML5** – estrutura das páginas e formulários;
-- **CSS3** – estilização, layout com sidebar e responsividade básica;
-- **JavaScript (ES6+)** – validações, interação com usuário e uso de `localStorage`;
-- **localStorage** – armazenamento temporário dos produtos cadastrados;
-- **ReportLab (Python)** – geração do PDF de requisitos (apenas para fins de documentação nesta entrega).
+- **HTML5** – marcação das páginas.
+- **CSS3** – estilização (layout com sidebar, cards, formulários, tabelas).
+- **JavaScript (ES6+)** – lógica de validação, integração entre telas, carrinho de compras.
+- **localStorage** – armazenamento temporário de produtos, carrinho e vendas.
 
 ---
 
 ## 🚀 Como Executar o Projeto
 
 1. Faça o download/clonagem do repositório.
-2. Acesse a pasta `src/`.
-3. Abra o arquivo **`login.html`** diretamente em um navegador (Chrome ou Edge).
-4. Realize o fluxo:
-   - Preencha os campos de login;
-   - Acesse o Dashboard;
-   - Navegue até o Cadastro de Produtos.
-
-> Não é necessário servidor web ou banco de dados para executar esta etapa.
+2. Abra a pasta `src/` no VS Code.
+3. Use a extensão **Live Server** (ou abra diretamente) para executar o arquivo **`login.html`**.
+4. Fluxo sugerido para testes:
+   - Acessar `login.html` → fazer login simulado;
+   - Navegar até **Cadastro de Produtos** → cadastrar alguns itens;
+   - Ir para **Lista de Produtos** → adicionar produtos ao carrinho;
+   - Ir para **Carrinho de Vendas** → conferir itens, remover se necessário e finalizar compra.
 
 ---
 
 ## 📄 Documentação de Requisitos
 
-O arquivo **`docs/requisitos_bicicletaria_etapa1.pdf`** contém:
+O arquivo **`docs/requisitos_bicicletaria_etapa2.pdf`** contém os principais:
 
-- Descrição textual da etapa;
-- Lista dos **Requisitos Funcionais (RF)** relacionados às telas de Login, Dashboard e Cadastro de Produtos;
-- Lista dos **Requisitos Não Funcionais (RNF)**, incluindo tecnologias, organização de código, usabilidade, compatibilidade de navegadores e versionamento.
+- **Requisitos Funcionais (RF13 a RF24)** focados em:
+  - Lista de produtos;
+  - Integração com o carrinho;
+  - Estrutura e funcionamento do carrinho;
+  - Registro de vendas.
 
----
-
-## 🔮 Próximos Passos (Etapas Futuras)
-
-Em etapas posteriores, poderão ser implementadas:
-
-- Tela de **Lista de Produtos** com botão *Adicionar ao Carrinho*;
-- Tela de **Carrinho de Vendas** com finalização e formas de pagamento;
-- Tela de **Controle de Estoque** com itens vendidos;
-- Tela de **Ordem de Serviços**, integrada ao carrinho para cobrança de serviços.
+- **Requisitos Não Funcionais (RNF11 a RNF17)** cobrindo:
+  - Padrão visual;
+  - Organização de código e pastas;
+  - Persistência via `localStorage`;
+  - Usabilidade e feedback;
+  - Compatibilidade de navegadores;
+  - Integração com GitHub.
